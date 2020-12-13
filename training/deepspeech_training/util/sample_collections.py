@@ -75,7 +75,7 @@ class PackedSample:
     def unpack(self):
         # Open with file wrapper that converts audio on the fly, if necessary
         with AudioFile(self.filename) as audio_file:
-            data = audio_file.read()
+            data = audio_file.readframes(audio_file.getnframes())
         if self.label is None:
             s = Sample(self.audio_type, data, sample_id=self.filename)
         s = LabeledSample(self.audio_type, data, self.label, sample_id=self.filename)
