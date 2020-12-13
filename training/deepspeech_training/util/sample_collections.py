@@ -16,7 +16,8 @@ from .audio import (
     AUDIO_TYPE_OPUS,
     SERIALIZABLE_AUDIO_TYPES,
     get_audio_type_from_extension,
-    write_wav
+    write_wav,
+    AudioFile
 )
 from .io import open_remote, is_remote_path
 
@@ -72,7 +73,8 @@ class PackedSample:
         self.label = label
 
     def unpack(self):
-        with open_remote(self.filename, 'rb') as audio_file:
+        # Open with file wrapper that converts audio on the fly, if necessary
+        with AudioFile(self.filename) as audio_file:
             data = audio_file.read()
         if self.label is None:
             s = Sample(self.audio_type, data, sample_id=self.filename)
