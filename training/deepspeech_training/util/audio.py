@@ -201,6 +201,7 @@ class AudioFile:
             self.audio_path = self.tmp_src_file_path
 
         _, self.tmp_file_path = tempfile.mkstemp(suffix='.wav')
+        print("Performing sox conversion on temporary file for %s" % self.audio_path)
         convert_audio(self.audio_path, self.tmp_file_path, file_type='wav', audio_format=self.audio_format)
         if self.as_path:
             return self.tmp_file_path
