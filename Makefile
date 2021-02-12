@@ -1,4 +1,4 @@
-DEEPSPEECH_REPO ?= https://github.com/mozilla/DeepSpeech.git
+DEEPSPEECH_REPO ?= https://github.com/usespeakeasy/DeepSpeech.git
 DEEPSPEECH_SHA  ?= origin/master
 
 Dockerfile%: Dockerfile%.tmpl

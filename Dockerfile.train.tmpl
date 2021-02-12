@@ -1,10 +1,13 @@
 # Please refer to the TRAINING documentation, "Basic Dockerfile for training"
 
+ 
 FROM tensorflow/tensorflow:1.15.4-gpu-py3
 ENV DEBIAN_FRONTEND=noninteractive
 
 ENV DEEPSPEECH_REPO=#DEEPSPEECH_REPO#
 ENV DEEPSPEECH_SHA=#DEEPSPEECH_SHA#
+
+COPY 
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
         apt-utils \
@@ -65,4 +68,4 @@ RUN rm -rf kenlm && \
 	make -j $(nproc)
 WORKDIR /DeepSpeech
 
-RUN ./bin/run-ldc93s1.sh
+RUN ./bin/run-speak-train-v0.sh
