@@ -8,7 +8,7 @@ ENV DEEPSPEECH_REPO=#DEEPSPEECH_REPO#
 ENV DEEPSPEECH_SHA=#DEEPSPEECH_SHA#
 
 #  Copy over training files 
-COPY data/ /data/
+COPY temp_data/ /data/
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
         apt-utils \
