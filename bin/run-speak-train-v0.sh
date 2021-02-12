@@ -5,8 +5,6 @@ if [ ! -f DeepSpeech.py ]; then
     exit 1
 fi;
 
-# Copy over training files 
-COPY data/ /data/
 
 
 if [ -d "${COMPUTE_KEEP_DIR}" ]; then
