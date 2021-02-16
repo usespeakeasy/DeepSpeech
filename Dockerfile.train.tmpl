@@ -45,7 +45,8 @@ RUN cd native_client/ctcdecode && make NUM_PROCESSES=$(nproc) bindings
 RUN pip3 install --upgrade native_client/ctcdecode/dist/*.whl
 
 # WANDB
-# RUN pip3 install wandb
+RUN pip3 install wandb
+ENV WANDB_API_KEY
 # ENTRYPOINT wandb login $WANDB_KEY && /bin/bash
 
 # Prepare deps

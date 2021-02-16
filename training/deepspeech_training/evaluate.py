@@ -71,9 +71,12 @@ def evaluate(test_csvs, create_model):
     # Transpose to batch major and apply softmax for decoder
     transposed = tf.nn.softmax(tf.transpose(a=logits, perm=[1, 0, 2]))
 
-    loss = tfv1.nn.ctc_loss(labels=batch_y,
-                            inputs=logits,
-                            sequence_length=batch_x_len)
+    loss = tfv1.nn.ctc_loss(
+        labels=batch_y,
+        inputs=logits,
+        sequence_length=batch_x_len,
+        ignore_longer_outputs_than_inputs=True,
+    )
 
     tfv1.train.get_or_create_global_step()
 

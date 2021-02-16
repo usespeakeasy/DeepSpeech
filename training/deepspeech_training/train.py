@@ -6,8 +6,12 @@ import os
 import sys
 
 # # logging
-# import wandb
-# wandb.init(project="deepspeech")
+import wandb
+wandb.init(
+    project="deepspeech", 
+    entity="dzorlu81", 
+    sync_tensorboard=True
+)
 
 LOG_LEVEL_INDEX = sys.argv.index('--log_level') + 1 if '--log_level' in sys.argv else 0
 DESIRED_LOG_LEVEL = sys.argv[LOG_LEVEL_INDEX] if 0 < LOG_LEVEL_INDEX < len(sys.argv) else '3'
