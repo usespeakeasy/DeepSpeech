@@ -5,6 +5,10 @@ from __future__ import absolute_import, division, print_function
 import os
 import sys
 
+# logging
+import wandb
+wandb.init(project="deepspeech")
+
 LOG_LEVEL_INDEX = sys.argv.index('--log_level') + 1 if '--log_level' in sys.argv else 0
 DESIRED_LOG_LEVEL = sys.argv[LOG_LEVEL_INDEX] if 0 < LOG_LEVEL_INDEX < len(sys.argv) else '3'
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = DESIRED_LOG_LEVEL
