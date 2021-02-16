@@ -574,6 +574,9 @@ def train():
                     _, current_step, batch_loss, problem_files, step_summary = \
                         session.run([train_op, global_step, loss, non_finite_files, step_summaries_op],
                                     feed_dict=feed_dict)
+                    if current_step % 100 == 0:
+                        log_progress('Training step %d...' % current_step)
+
                     exception_box.raise_if_set()
                 except tf.errors.OutOfRangeError:
                     exception_box.raise_if_set()
