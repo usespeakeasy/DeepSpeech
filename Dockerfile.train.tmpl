@@ -49,6 +49,10 @@ RUN pip3 install wandb
 ENV WANDB_API_KEY=''
 # ENTRYPOINT wandb login $WANDB_KEY && /bin/bash
 
+# CHECKPOINT
+RUN wget https://github.com/mozilla/DeepSpeech/releases/download/v0.9.3/deepspeech-0.9.3-models.pbmm
+ENV CHECKPOINT_DIR=''
+
 # Prepare deps
 RUN pip3 install --upgrade pip==20.2.2 wheel==0.34.2 setuptools==49.6.0
 
