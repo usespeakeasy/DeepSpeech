@@ -24,6 +24,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         unzip \
         wget
 
+# NVIDIA container runtime
+RUN apt-get install nvidia-container-runtime
+
 # We need to remove it because it's breaking deepspeech install later with
 # weird errors about setuptools
 RUN apt-get purge -y python3-xdg
