@@ -55,6 +55,7 @@ ENV FILE=deepspeech-0.9.3-models.pbmm
 RUN wget https://github.com/mozilla/DeepSpeech/releases/download/v0.9.3/deepspeech-0.9.3-models.pbmm
 
 # Prepare deps
+WORKDIR /DeepSpeech
 RUN pip3 install --upgrade pip==20.2.2 wheel==0.34.2 setuptools==49.6.0
 
 # Install DeepSpeech
