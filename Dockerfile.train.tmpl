@@ -50,7 +50,8 @@ ENV WANDB_API_KEY=''
 # ENTRYPOINT wandb login $WANDB_KEY && /bin/bash
 
 # CHECKPOINT
-RUN wget https://github.com/mozilla/DeepSpeech/releases/download/v0.9.3/deepspeech-0.9.3-models.pbmm
+ENV CHECKPOINT_DIR=/model
+RUN wget https://github.com/mozilla/DeepSpeech/releases/download/v0.9.3/deepspeech-0.9.3-models.pbmm CHECKPOINT_DIR
 ENV CHECKPOINT_DIR=''
 
 # Prepare deps
