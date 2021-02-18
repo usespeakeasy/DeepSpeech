@@ -20,7 +20,7 @@ python -u DeepSpeech.py --noshow_progressbar \
   --learning_rate 0.0001 \
   --n_hidden 2048 \
   --train_cudnn \
-  --checkpoint_dir $CHECKPOINT_DIR
+  --checkpoint_dir /model/ \
   --epochs 10 \
   --export_tflite \
   --export_dir /run/model_export/ \
