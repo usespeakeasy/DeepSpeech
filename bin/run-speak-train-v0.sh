@@ -10,6 +10,7 @@ mkdir -p /run/checkpoints/
 mkdir -p /run/test_output_files/
 mkdir -p /run/model_export/
 
+
 python -u DeepSpeech.py --noshow_progressbar \
   --train_files /data/training_features.csv \
   --test_files /data/test_features.csv \
