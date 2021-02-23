@@ -965,7 +965,7 @@ def main(_):
         sync_tensorboard=True,
     )
     # log hyperparams
-    wandb.config.update(flags.FLAGS)
+    wandb.config.update(FLAGS)
 
     if FLAGS.train_files:
         tfv1.reset_default_graph()
