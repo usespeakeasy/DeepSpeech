@@ -961,7 +961,7 @@ def main(_):
 
     wandb.init(
         project="deepspeech", 
-        entity="dzorlu81", 
+        entity="deniz-zorlu", 
         sync_tensorboard=True,
     )
     # log hyperparams
