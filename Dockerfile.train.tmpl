@@ -7,9 +7,6 @@ ENV DEBIAN_FRONTEND=noninteractive
 ENV DEEPSPEECH_REPO=#DEEPSPEECH_REPO#
 ENV DEEPSPEECH_SHA=#DEEPSPEECH_SHA#
 
-#  Copy over training files 
-COPY temp_data/ /data/
-
 RUN apt-get update && apt-get install -y --no-install-recommends \
         apt-utils \
         bash-completion \
@@ -48,12 +45,17 @@ RUN pip3 install --upgrade native_client/ctcdecode/dist/*.whl
 # WANDB
 RUN pip3 install wandb
 ENV WANDB_API_KEY=''
-# ENTRYPOINT wandb login $WANDB_KEY && /bin/bash
 
 # CHECKPOINT
-WORKDIR /model
-ENV FILE=deepspeech-0.9.3-models.pbmm
-RUN wget https://github.com/mozilla/DeepSpeech/releases/download/v0.9.3/deepspeech-0.9.3-models.pbmm
+WORKDIR /run/checkpoints/
+RUN wget  https://github.com/mozilla/DeepSpeech/releases/download/v0.9.3/deepspeech-0.9.3-checkpoint.tar.gz
+RUN tar -xf deepspeech-0.9.3-checkpoint.tar.gz
+RUN cp -a deepspeech-0.9.3-checkpoint/. .
+
+
+#  Copy over training files 
+WORKDIR /DeepSpeech
+COPY temp_data/ /data/
 
 # Prepare deps
 WORKDIR /DeepSpeech
