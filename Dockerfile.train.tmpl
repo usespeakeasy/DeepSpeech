@@ -53,10 +53,6 @@ RUN tar -xf deepspeech-0.9.3-checkpoint.tar.gz
 RUN cp -a deepspeech-0.9.3-checkpoint/. .
 
 
-#  Copy over training files 
-# WORKDIR /DeepSpeech
-# COPY temp_data/ /data/
-
 # Prepare deps
 WORKDIR /DeepSpeech
 RUN pip3 install --upgrade pip==20.2.2 wheel==0.34.2 setuptools==49.6.0
