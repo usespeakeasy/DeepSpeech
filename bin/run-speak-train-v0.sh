@@ -19,9 +19,9 @@ python -u DeepSpeech.py --noshow_progressbar \
   --train_files /data/training_features.csv \
   --test_files /data/test_features.csv \
   --dev_files /data/valid_features.csv \
-  --train_batch_size 256 \
-  --dev_batch_size 256 \
-  --test_batch_size 256 \
+  --train_batch_size 128 \
+  --dev_batch_size 128 \
+  --test_batch_size 128 \
   --learning_rate 0.0003 \
   --n_hidden 2048 \
   --train_cudnn \
