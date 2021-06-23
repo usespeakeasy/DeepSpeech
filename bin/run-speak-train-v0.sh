@@ -11,7 +11,7 @@ mkdir -p /run/test_output/
 mkdir -p /run/model_export/
 
 # https://github.com/mozilla/DeepSpeech/issues/3088
-export TF_CUDNN_RESET_RND_GEN_STATE=1 
+export TF_CUDNN_RESET_RND_GEN_STATE=1
 
 # original checkpoint shd be saved into /run/checkpoints/
 # wget  https://github.com/mozilla/DeepSpeech/releases/download/v0.9.3/deepspeech-0.9.3-checkpoint.tar.gz
