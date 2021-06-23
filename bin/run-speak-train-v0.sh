@@ -16,9 +16,9 @@ export TF_CUDNN_RESET_RND_GEN_STATE=1
 # original checkpoint shd be saved into /run/checkpoints/
 # wget  https://github.com/mozilla/DeepSpeech/releases/download/v0.9.3/deepspeech-0.9.3-checkpoint.tar.gz
 python -u DeepSpeech.py --noshow_progressbar \
-  --train_files /data/training_features.csv \
-  --test_files /data/test_features.csv \
-  --dev_files /data/valid_features.csv \
+  --train_files /data/training_features_all.csv \
+  --test_files /data/test_features_all.csv \
+  --dev_files /data/valid_features_all.csv \
   --train_batch_size 128 \
   --dev_batch_size 128 \
   --test_batch_size 128 \
