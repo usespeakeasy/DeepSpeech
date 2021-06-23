@@ -25,7 +25,7 @@ python -u DeepSpeech.py --noshow_progressbar \
   --learning_rate 0.0003 \
   --n_hidden 2048 \
   --train_cudnn \
-  --epochs 30 \
+  --epochs 1 \
   --export_tflite \
   --export_dir /run/model_export/ \
   --summary_dir /run/summaries/ \
@@ -34,3 +34,11 @@ python -u DeepSpeech.py --noshow_progressbar \
   --plateau_epochs 2 \
   --test_output_file /run/test_output/test_output.json \
   "$@"
+
+# copy model outputs to version bucket. 
+export VERSION_ID=$(openssl rand -hex 16)
+echo $VERSION_ID
+gsutil -m cp -r /run/checkpoints/* gs://speak-speechrecognition-production/output/$VERSION_ID/checkpoints/
+gsutil -m cp -r /run/model_export/* gs://speak-speechrecognition-production/output/$VERSION_ID/model_export/
+gsutil -m cp -r /run/test_output/* gs://speak-speechrecognition-production/output/$VERSION_ID/test_output/
+

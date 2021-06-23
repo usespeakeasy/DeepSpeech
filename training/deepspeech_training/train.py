@@ -247,6 +247,7 @@ def calculate_mean_edit_distance_and_loss(iterator, dropout, reuse):
     logits, _ = create_model(batch_x, batch_seq_len, dropout, reuse=reuse, rnn_impl=rnn_impl)
 
     # Compute the CTC loss using TensorFlow's `ctc_loss`
+    # [max_time, batch_size, num_classes]  If time_major == True (default)
     total_loss = tfv1.nn.ctc_loss(
         labels=batch_y, 
         inputs=logits, 
