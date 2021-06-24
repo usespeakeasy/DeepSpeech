@@ -960,10 +960,13 @@ def main(_):
     initialize_globals()
     early_training_checks()
 
+    version_id = os.getenv('VERSION_ID')
+
     wandb.init(
         project="deepspeech", 
         entity="speak-ml", 
         sync_tensorboard=True,
+        id=version_id 
     )
     # log hyperparams
     wandb.config.update(FLAGS)

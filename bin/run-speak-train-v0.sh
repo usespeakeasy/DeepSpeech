@@ -13,6 +13,10 @@ mkdir -p /run/model_export/
 # https://github.com/mozilla/DeepSpeech/issues/3088
 export TF_CUDNN_RESET_RND_GEN_STATE=1
 
+# Create version_id for the run.
+export VERSION_ID=$(openssl rand -hex 16)
+echo $VERSION_ID
+
 # original checkpoint shd be saved into /run/checkpoints/
 # wget  https://github.com/mozilla/DeepSpeech/releases/download/v0.9.3/deepspeech-0.9.3-checkpoint.tar.gz
 python -u DeepSpeech.py --noshow_progressbar \
@@ -25,7 +29,7 @@ python -u DeepSpeech.py --noshow_progressbar \
   --learning_rate 0.0003 \
   --n_hidden 2048 \
   --train_cudnn \
-  --epochs 1 \
+  --epochs 20 \
   --export_tflite \
   --export_dir /run/model_export/ \
   --summary_dir /run/summaries/ \
@@ -36,8 +40,6 @@ python -u DeepSpeech.py --noshow_progressbar \
   "$@"
 
 # copy model outputs to version bucket. 
-export VERSION_ID=$(openssl rand -hex 16)
-echo $VERSION_ID
 gsutil -m cp -r /run/checkpoints/* gs://speak-speechrecognition-production/output/$VERSION_ID/checkpoints/
 gsutil -m cp -r /run/model_export/* gs://speak-speechrecognition-production/output/$VERSION_ID/model_export/
 gsutil -m cp -r /run/test_output/* gs://speak-speechrecognition-production/output/$VERSION_ID/test_output/
