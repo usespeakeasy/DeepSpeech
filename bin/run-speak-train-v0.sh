@@ -29,7 +29,7 @@ python -u DeepSpeech.py --noshow_progressbar \
   --learning_rate 0.0003 \
   --n_hidden 2048 \
   --train_cudnn \
-  --epochs 20 \
+  --epochs 30 \
   --export_tflite \
   --export_dir /run/model_export/ \
   --summary_dir /run/summaries/ \
