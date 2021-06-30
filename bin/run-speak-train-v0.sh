@@ -26,7 +26,7 @@ python -u DeepSpeech.py --noshow_progressbar \
   --train_batch_size 128 \
   --dev_batch_size 128 \
   --test_batch_size 128 \
-  --learning_rate 0.0003 \
+  --learning_rate 0.001 \
   --n_hidden 2048 \
   --train_cudnn \
   --epochs 30 \
