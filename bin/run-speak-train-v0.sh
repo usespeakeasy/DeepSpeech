@@ -40,7 +40,7 @@ python -u DeepSpeech.py --noshow_progressbar \
   "$@"
 
 # copy model outputs to version bucket. 
-gsutil -m cp -r /run/checkpoints/* gs://speak-speechrecognition-production/output/$VERSION_ID/checkpoints/
-gsutil -m cp -r /run/model_export/* gs://speak-speechrecognition-production/output/$VERSION_ID/model_export/
-gsutil -m cp -r /run/test_output/* gs://speak-speechrecognition-production/output/$VERSION_ID/test_output/
+gsutil -m cp -r /run/checkpoints/* gs://$GS_BUCKET_PATH/output/$VERSION_ID/checkpoints/
+gsutil -m cp -r /run/model_export/* gs://$GS_BUCKET_PATH/output/$VERSION_ID/model_export/
+gsutil -m cp -r /run/test_output/* gs://$GS_BUCKET_PATH/output/$VERSION_ID/test_output/
 
