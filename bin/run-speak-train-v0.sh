@@ -23,10 +23,10 @@ python -u DeepSpeech.py --noshow_progressbar \
   --train_files /data/training_features_all.csv \
   --test_files /data/test_features_all.csv \
   --dev_files /data/valid_features_all.csv \
-  --train_batch_size 96 \
+  --train_batch_size 64 \
   --dev_batch_size 96 \
   --test_batch_size 96 \
-  --learning_rate 0.001 \
+  --learning_rate 0.0003 \
   --n_hidden 2048 \
   --train_cudnn \
   --epochs 30 \
@@ -34,8 +34,8 @@ python -u DeepSpeech.py --noshow_progressbar \
   --export_dir /run/model_export/ \
   --summary_dir /run/summaries/ \
   --checkpoint_dir /run/checkpoints/ \
-  --reduce_lr_on_plateau \
-  --plateau_epochs 2 \
+  # --reduce_lr_on_plateau \
+  # --plateau_epochs 2 \
   --test_output_file /run/test_output/test_output.json \
   "$@"
 
